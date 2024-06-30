@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}User Information{% endblock %}
+
+{% block content %}
+<h1>User Information</h1>
+<p>Username: {{ user.username }}</p>
+<p>Email: {{ user.email }}</p>
+<p>Date Created: {{ user.date_created }}</p>
+<a href="{{ url_for('main.edit_user', user_id=user.id) }}">Edit</a>
+<form method="POST" action="{{ url_for('main.delete_user', user_id=user.id) }}">
+    <input type="submit" value="Delete">
+</form>
+{% endblock %}

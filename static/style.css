@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 1em;
+  text-decoration: none;
+}
+
+h1 {
+  color: #333;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+  padding: 10px;
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form div label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form div input[type="text"],
+form div input[type="password"],
+form div input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form div input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form div input[type="submit"]:hover {
+  background-color: #555;
+}
+
+.nav-bar {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.nav-li {
+  text-decoration: none;
+  color: black;
+}
+
+.img-thumbnail {
+  max-width: 100%;
+  height: auto;
+}
+
+/* style.css */
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar-logo {
+    height: 30px;
+  }
+}

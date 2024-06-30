@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Register</h2>
+    <form method="POST" action="{{ url_for('auth.register') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.username.label(class="form-control-label") }}
+            {{ form.username(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.email.label(class="form-control-label") }}
+            {{ form.email(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.password.label(class="form-control-label") }}
+            {{ form.password(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.confirm_password.label(class="form-control-label") }}
+            {{ form.confirm_password(class="form-control") }}
+        </div>
+        <div class="form-group d-flex align-items-center">
+            {{ form.admin.label(class="form-control-label mb-0 mr-2") }}
+            {{ form.admin(class="form-check-input ml-2", style="position: relative; bottom: 1px; right: 10px;") }}
+        </div>
+        <div class="form-group" id="admin-key-field" style="display: none;">
+            {{ form.admin_key.label(class="form-control-label") }}
+            {{ form.admin_key(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var adminCheckbox = document.querySelector("input[name='admin']");
+        var adminKeyField = document.getElementById("admin-key-field");
+
+        adminCheckbox.addEventListener("change", function () {
+            if (adminCheckbox.checked) {
+                adminKeyField.style.display = "block";
+            } else {
+                adminKeyField.style.display = "none";
+            }
+        });
+    });
+</script>
+{% endblock %}
