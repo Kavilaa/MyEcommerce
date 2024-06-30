@@ -14,33 +14,26 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    
     db.init_app(app)
-
- 
     migrate = Migrate(app, db)
 
-   
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
-    # Define how to load a user
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
 
-    # Custom filter for summing cart total
     @app.template_filter('sum_cart_total')
     def sum_cart_total(cart_items):
         return sum(item.product.price * item.quantity for item in cart_items)
 
-   
     app.register_blueprint(auth_bp, url_prefix='/auth')
     app.register_blueprint(product_bp, url_prefix='/products')
     app.register_blueprint(cart_bp, url_prefix='/cart')
-    app.register_blueprint(main_bp)  
-    app.register_blueprint(comment_bp) 
+    app.register_blueprint(main_bp)
+    app.register_blueprint(comment_bp)
 
     return app
 
