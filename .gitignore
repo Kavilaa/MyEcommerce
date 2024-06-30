@@ -4,11 +4,8 @@
 # Ignore database migrations
 *migrations/
 
-*instance/
 
-# Ignore SQLite database files
-*.db
-*.sqlite
+
 
 *config.py
 
