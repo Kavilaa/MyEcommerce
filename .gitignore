@@ -4,9 +4,4 @@
 # Ignore database migrations
 *migrations/
 
-
-
-
-*config.py
-
 *__pycache__
