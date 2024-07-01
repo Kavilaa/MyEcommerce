@@ -6,11 +6,14 @@ from config import Config
 from models import db, User
 from auth import auth_bp
 from product_routes import product_bp
-from routes import bp as main_bp  
+from routes import bp as main_bp
 from cart_routes import cart_bp
-from comment_routes import comment_bp  
+from comment_routes import comment_bp
+
+app = None  
 
 def create_app():
+    global app  
     app = Flask(__name__)
     app.config.from_object(Config)
 
@@ -38,7 +41,7 @@ def create_app():
     return app
 
 if __name__ == '__main__':
-    app = create_app()
+    create_app()
     app.run(debug=True)
 else:
-    app= create_app()
+    create_app()
