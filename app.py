@@ -10,10 +10,7 @@ from routes import bp as main_bp
 from cart_routes import cart_bp
 from comment_routes import comment_bp
 
-app = None  
-
 def create_app():
-    global app  
     app = Flask(__name__)
     app.config.from_object(Config)
 
@@ -40,8 +37,7 @@ def create_app():
 
     return app
 
+app = create_app()
+
 if __name__ == '__main__':
-    create_app()
     app.run(debug=True)
-else:
-    create_app()
